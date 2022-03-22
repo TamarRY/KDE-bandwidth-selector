@@ -51,7 +51,7 @@ class KDEBandwidthSelector:
         grid = GridSearchCV(KernelDensity(kernel='gaussian'),
                             {'bandwidth': bandwidths},
                             cv=LeaveOneOut())
-        grid.fit(uniform_samples[:, None]);
+        grid.fit(self.train[:, None]);
         return grid.best_params_['bandwidth']
 
     def find_bw(self):
